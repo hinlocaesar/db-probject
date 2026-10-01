@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hush — a focus app in development. Join the waitlist.</title>
+    <meta
+      name="description"
+      content="Hush is a cross-device blocker that silences distracting apps, sites and feeds on every screen you own. It is in active development — join the waitlist for the launch link and founding pricing."
+    />
+    <meta name="theme-color" content="#0B2018" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Hush — a focus app in development" />
+    <meta
+      property="og:description"
+      content="One session, every device, zero noise. Not released yet. Join the waitlist and get the launch link first."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&family=Young+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230B2018'/%3E%3Cpath d='M11 12.5v3M11 18.5v1.5M16 9.5v4M16 16.5v4.5M21 11.5v5M21 19.5v2.5' stroke='%23DFFF80' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+
+    <!--
+      Structured data is deliberately limited to the FAQ.
+
+      There is no aggregateRating, no review count and no Offer block: Hush has
+      never shipped, so any of those would be a fabricated claim in a machine
+      readable format, which is exactly the sort of thing that ends up in a
+      search snippet and gets quoted back.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Hush available to download?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not yet. Hush is in active development and is not publicly released. The app screens shown on the page are previews of what is being built. Joining the waitlist gets you the launch link before the public announcement."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens when I join the waitlist?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "One email when Hush launches, and nothing else. No drip sequence, no sharing, no selling, and a one-click unsubscribe that works immediately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which platforms will Hush support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "macOS and Windows first, then iOS and Android, then a browser extension for Chrome and Edge. Linux is planned if there is demand for it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much will Hush cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There will be a free tier and a paid Pro tier. Early access pricing for waitlist members will be below the eventual list price and includes a free Pro upgrade. Joining the list costs nothing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will you track what I browse?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Blocking happens on your device, by design. Hush is not intended to hold a dataset of the websites you visit or the apps you open."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
