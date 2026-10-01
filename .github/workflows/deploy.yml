@@ -1,0 +1,64 @@
+name: Deploy to GitHub Pages
+
+# Pushes the built site to https://hinlocaesar.github.io/db-probject/
+#
+# `enablement: true` lets this workflow switch Pages on by itself. Without it
+# the deploy fails on a repository where Pages has never been configured,
+# which would need a manual trip to Settings first.
+
+on:
+  push:
+    branches: [main]
+  # Lets a deploy be re-run from the Actions tab without pushing a commit.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deploys at once — they would race on the same branch.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Vite reads GITHUB_ACTIONS to set `base` to /db-probject/, which is
+      # what makes the asset URLs resolve under the repo subpath.
+      - name: Build
+        run: npm run build
+        env:
+          GITHUB_ACTIONS: 'true'
+
+      - uses: actions/configure-pages@v5
+        id: pages
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Creates the Pages site if it does not exist yet.
+          enablement: true
